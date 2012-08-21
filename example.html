@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+<meta charset='utf-8'>
+<title>jQuery Tabinate v0.4</title>
+<style>
+body                  {font:100% Helvetica, sans-serif;}
+ul                    {margin:0;padding:0;background-color:#ddd;}
+ul li                 {list-style-type:none;display:inline-block;margin:0;padding:0;}
+ul li a               {display:block;padding:4px 8px;}
+ul li a.active,
+ul li a.active:hover  {background-color:#fff;}
+ul li a:hover         {background-color:#ccc;}
+.tab-window           {border:1px solid #ccc;}
+.tab                  {padding:5px 10px;}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.tabinate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#example-one').tabinate();
+  $('#example-two').tabinate({bookmarks:false});
+});
+</script>
+</head>
+
+<body>
+<h1>Examples</h1>
+<h2>Example 1: Default Behavior</h2>
+<div id="example-one" class="tab-window">
+  <nav>
+    <ul>
+      <li><a href="#item-one">Item One</a></li
+     ><li><a href="#item-two">Item Two</a></li
+     ><li><a href="#item-four">Item Four</a></li
+     ><li><a href="#item-three">Item Three</a></li
+     ><li><a href="#">No ID</a></li>
+    </ul>
+  </nav>
+  <div id="item-one" class="tab">
+    <p>Sample content one</p>
+  </div>
+  <div id="item-two" class="tab">
+    <p>Sample content two</p>
+  </div>
+  <div id="item-three" class="tab">
+    <p>Sample content three</p>
+  </div>
+  <div id="item-four" class="tab">
+    <p>Sample content four</p>
+  </div>
+  <div class="tab">
+    <p>Sample content with no ID</p>
+  </div>
+</div>
+
+<h2>Example 2: No IDs or Bookmarks</h2>
+<div id="example-two" class="tab-window">
+  <nav>
+    <ul>
+      <li><a href="#">Item One</a></li
+     ><li><a href="#">Item Two</a></li
+     ><li><a href="#">Item Three</a></li
+     ><li><a href="#">Item Four</a></li
+    </ul>
+  </nav>
+  <div class="tab">
+    <p>Sample content one</p>
+  </div>
+  <div class="tab">
+    <p>Sample content two</p>
+  </div>
+  <div class="tab">
+    <p>Sample content three</p>
+  </div>
+  <div class="tab">
+    <p>Sample content four</p>
+  </div>
+</div>
+</body>
+</html>
