@@ -67,3 +67,8 @@ Options
 * `activeTabClass` - CSS class hook for the visible tab (default: `active-tab`),
 * `bookmarks` - Set to `1` or `true` to enable bookmarks (URL hash changes on click), or `0` or `false` to disable bookmarks (default: `true`)
 * `tabClass` - class that determines a tab element (default: `tab`)
+
+
+Download
+--------
+https://github.com/dangodev/jQuery-Tabinate/zipball/master
