@@ -26,9 +26,9 @@ Dependencies
 Usage
 -----
 To initialize:
-$(document).ready(function() {
-	$('div#tabs').tabinate();
-});
+	$(document).ready(function() {
+		$('div#tabs').tabinate();
+	});
 
 This is roughly how the HTML should look:
 
