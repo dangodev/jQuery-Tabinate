@@ -28,7 +28,7 @@ Usage
 To initialize:
 
 	$(document).ready(function() {
-		$('div#tabs').tabinate();
+		$('#example-one').tabinate();
 	});
 
 This is roughly how the HTML should look:
