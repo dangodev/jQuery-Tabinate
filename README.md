@@ -1,7 +1,7 @@
 jQuery-Tabinate
 ===============
 
-< 1kb (minified) tab plugin for jQuery
+1kb (minified) tab plugin for jQuery
 
 Description
 -----------
