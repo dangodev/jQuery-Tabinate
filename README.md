@@ -10,7 +10,7 @@ This is a lightweight, bare-bones jQuery tabination plugin for when you don't ne
 There are only *3 rules* to get it working:
 
 * Navigation and tabs must go inside a container element (this is what you initialize)
-* Navigation **must** follow a `ul > li > a` structure (surrounding `span`s and `div`s for styling are okay)
+* Navigation **must** follow a `ul li a` structure (surrounding `span`s and `div`s for styling are okay)
 * Tabs **must** have `tab` class (class name can be changed with the `tabClass` option; any element will work)
 
 It uses the first `ul` it finds as the navigation. The navigation either requires an `href` anchor set to the ID of the tab, or it will correspond the
