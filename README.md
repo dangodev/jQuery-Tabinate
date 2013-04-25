@@ -5,15 +5,18 @@ jQuery-Tabinate
 
 Description
 -----------
-This is a lightweight, bare-bones jQuery tabination plugin. Good for when you don't need jQuery UI.
+This is a lightweight, bare-bones jQuery tabination plugin for you don't need jQuery UI bloat.
 
-It leaves most of the styling to you, and doesn't require any CSS to get it working.
+There are only *3 rules* to get it working:
 
-It uses the first `ul` it finds inside the selected element as the navigation. The navigation either requires an `href` anchor set to the ID of the tab,
-or it will correspond the link index with the tab index (ex, the first link will open the first tab, the second link will open the second tab, etc.).
+* Navigation and tabs must go inside a container element (this is what you initialize)
+* Navigation **must** follow a `ul > li > a` structure (surrounding `span`s and `div`s for styling are okay)
+* Tabs **must** have `tab` class (class name can be changed with the `tabClass` option; any element will work)
 
-Tab elements must have the class name `tab` on them. This can be changed with the `className` option. In this way, any element within the container can be
-used as a tab, or elements can be placed inside a container which do not need to tabinate.
+It uses the first `ul` it finds as the navigation. The navigation either requires an `href` anchor set to the ID of the tab, or it will correspond the
+link index with the tab index (ex, the first link will open the first tab, the second link will open the second tab, etc.). In the unfortunate event an
+`li` contains two links, it will use the first link as the navigation. In the catastrophic event that there are more navigation links than tabs, or
+vice-versa, the universe will implode and we will all die a quick, painless depth in the unmerciful maw of compressed space-time.
 
 Currently, this plugin supports multiple tab windows on the same page without conflict, but not tabs within tabs.
 
@@ -27,8 +30,10 @@ Usage
 -----
 To initialize:
 
-	$(document).ready(function() {
-		$('#example-one').tabinate();
+	$('#example-one').tabinate({
+		activeLinkClass : 'active',
+		tabClass : 'tab',
+		startTab : 0
 	});
 
 This is roughly how the HTML should look:
@@ -63,10 +68,11 @@ This is roughly how the HTML should look:
 
 Options
 -------
-* `activeLinkClass` - CSS class hook for active tab links (default: `active`)
-* `activeTabClass` - CSS class hook for the visible tab (default: `active-tab`),
-* `bookmarks` - Set to `1` or `true` to enable bookmarks (URL hash changes on click), or `0` or `false` to disable bookmarks (default: `true`)
-* `tabClass` - class that determines a tab element (default: `tab`)
+* `activeLinkClass` - (str) CSS class hook for active tab link LIs (default: `active`)
+* `activeTabClass` - (str) CSS class hook for the visible tab (default: `active-tab`),
+* `bookmarks` - (bool) Set to `1` or `true` to enable bookmarks (URL hash changes on click), or `0` or `false` to disable bookmarks (default: `true`)
+* `tabClass` - (str) class that determines a tab element (default: `tab`)
+* `startTab` - (int) index of list item / tab to display on load (0 is first, 1 is second, etc.)
 
 
 Download
