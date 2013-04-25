@@ -5,7 +5,7 @@ jQuery-Tabinate
 
 Description
 -----------
-This is a lightweight, bare-bones jQuery tabination plugin for you don't need jQuery UI bloat.
+This is a lightweight, bare-bones jQuery tabination plugin for when you don't need jQuery UI bloat.
 
 There are only *3 rules* to get it working:
 
