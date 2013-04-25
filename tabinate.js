@@ -1,4 +1,13 @@
-$.fn.tabinate = function(options) { // v0.5
+/*
+ * Tabinate v0.6 (jQuery 1.7? - 2.0)
+ * a lightweight, style-independent, jQuery tab switcher
+ * Free for modification, personal, and commercial use.
+ *
+ * https://github.com/dangodev/jQuery-Tabinate
+ */
+
+
+$.fn.tabinate = function(options) {
 
 // Default Settings (don't adjust here!)
 	var settings = $.extend({
