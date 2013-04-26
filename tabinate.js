@@ -27,15 +27,15 @@ $.fn.tabinate = function(options) {
 		tabs.removeClass(settings.activeTabClass).hide(0, function() {
 			var hash = window.location.hash;
 			hash = hash.slice(1);
-	
-			if($('#'+hash).length > 0) { // If hash, show tab
-				$('#'+hash+'.'+settings.tabClass).show(0, function() {
-					e.find("ul:eq(0) a[href='#"+hash+"']:eq(0)").closest('li').addClass(settings.activeLinkClass);
-				});
-			}
-			if(e.find('.'+settings.tabClass+':visible').length == 0 || settings.startTab > 0){ // If nothing visible, show first
-				var links = e.find('ul:eq(0) li:eq('+settings.startTab+')').addClass(settings.activeLinkClass);
-				tabs.eq(settings.startTab).show().addClass(settings.activeTabClass);
+			hash = hash.replace(/^\!\//, '');
+			if(e.find('#'+hash).length > 0) { // If hash, show tab
+				$('#'+hash+'.'+settings.tabClass).show();
+				e.find("a[href='#"+hash+"'], a[href='#!/"+hash+"']").eq(0).closest('li').addClass(settings.activeLinkClass);
+			} else { // else, show default
+				if(e.find('.'+settings.tabClass+':visible').length == 0 || settings.startTab > 0){
+					var links = e.find('ul:eq(0) li:eq('+settings.startTab+')').addClass(settings.activeLinkClass);
+					tabs.eq(settings.startTab).show().addClass(settings.activeTabClass);
+				}
 			}
 		});
 	
@@ -44,6 +44,7 @@ $.fn.tabinate = function(options) {
 			e.find('ul:eq(0) li').not($(this)).removeClass(settings.activeLinkClass);
 			$(this).addClass(settings.activeLinkClass);
 			var targetdiv = $(this).find('a:eq(0)').attr('href');
+			targetdiv = '#' + targetdiv.replace(/^\#\!\//, '');
 	
 			if($(targetdiv).length > 0) { // if using ID href
 				if($(targetdiv).is(':hidden')) {

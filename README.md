@@ -7,6 +7,8 @@ Description
 -----------
 This is a lightweight, bare-bones jQuery tabination plugin for when you don't need jQuery UI bloat.
 
+*NEW* supports “Twitter-style” hashes (eg, `<a href="#div-one">Div #1</a>` OR `<a href="#!/div-one">Div #1</a>` will work)
+
 There are only *3 rules* to get it working:
 
 * Navigation and tabs must go inside a container element (this is what you initialize)
@@ -41,10 +43,10 @@ This is roughly how the HTML should look:
 	<div id="example-one" class="tab-window">
 	  <nav>
 	    <ul>
-	      <li><a href="#item-one">Item One</a></li
-	     ><li><a href="#item-two">Item Two</a></li
-	     ><li><a href="#item-four">Item Four</a></li
-	     ><li><a href="#item-three">Item Three</a></li
+	      <li><a href="#!/item-one">Item One</a></li
+	     ><li><a href="#!/item-two">Item Two</a></li
+	     ><li><a href="#!/item-four">Item Four</a></li
+	     ><li><a href="#!/item-three">Item Three</a></li
 	     ><li><a href="#">No ID</a></li>
 	    </ul>
 	  </nav>
