@@ -1,5 +1,5 @@
 /*
- * Tabinate v0.7 (jQuery 1.7? - 2.0)
+ * Tabinate v0.8 (jQuery 1.7? - 2.0)
  * a lightweight, style-independent, jQuery tab switcher
  * Free for modification, personal, and commercial use.
  *
@@ -20,28 +20,30 @@ $.fn.tabinate = function(options) {
 
 	var container = this;
 	container.each(function(i, e) {
-		var e = $(e);
-		var tabs = e.find('.'+settings.tabClass);
-		
-		// Initialize
-		tabs.removeClass(settings.activeTabClass).hide(0, function() {
-			var hash = window.location.hash;
+		e = $(e);
+		init(e);
+		window.onpopstate = function() {init(e)};
+	});
+	function init(wrapper) {
+		var hash = window.location.hash;
 			hash = hash.slice(1);
 			hash = hash.replace(/^\!\//, '');
-			if(e.find('#'+hash).length > 0) { // If hash, show tab
-				$('#'+hash+'.'+settings.tabClass).show();
-				e.find("a[href='#"+hash+"'], a[href='#!/"+hash+"']").eq(0).closest('li').addClass(settings.activeLinkClass);
-			} else { // else, show default
-				if(e.find('.'+settings.tabClass+':visible').length == 0 || settings.startTab > 0){
-					var links = e.find('ul:eq(0) li:eq('+settings.startTab+')').addClass(settings.activeLinkClass);
-					tabs.eq(settings.startTab).show().addClass(settings.activeTabClass);
-				}
+		var tabs = wrapper.find('.'+settings.tabClass);
+		wrapper.find('li').removeClass(settings.activeLinkClass);
+		tabs.hide().removeClass(settings.activeTabClass);
+		if(wrapper.find('#'+hash).length > 0) { // If hash, show tab
+			$('#'+hash+'.'+settings.tabClass).show();
+			wrapper.find("a[href='#"+hash+"'], a[href='#!/"+hash+"']").eq(0).closest('li').addClass(settings.activeLinkClass);
+		} else { // else, show default
+			if(wrapper.find('.'+settings.tabClass+':visible').length == 0 || settings.startTab > 0){
+				var links = wrapper.find('ul:eq(0) li:eq('+settings.startTab+')').addClass(settings.activeLinkClass);
+				tabs.eq(settings.startTab).show().addClass(settings.activeTabClass);
 			}
-		});
-	
-		// Tab Click
-		e.find('ul:eq(0) li').click(function() {
-			e.find('ul:eq(0) li').not($(this)).removeClass(settings.activeLinkClass);
+		}
+
+		// Click Binding
+		wrapper.find('ul:eq(0) li').click(function() {
+			wrapper.find('ul:eq(0) li').not($(this)).removeClass(settings.activeLinkClass);
 			$(this).addClass(settings.activeLinkClass);
 			var targetdiv = $(this).find('a:eq(0)').attr('href');
 			targetdiv = '#' + targetdiv.replace(/^\#\!\//, '');
@@ -53,7 +55,7 @@ $.fn.tabinate = function(options) {
 					});
 				}
 			} else { // if not using IDs
-				eq = e.find('ul:eq(0) li').index(this);
+				eq = wrapper.find('ul:eq(0) li').index(this);
 				tabs.removeClass(settings.activeTabClass).hide(0, function() {
 					tabs.eq(eq).show().addClass(settings.activeTabClass);
 				});
@@ -61,5 +63,5 @@ $.fn.tabinate = function(options) {
 	
 			if(settings.bookmarks != true) return false;
 		});
-	});
+	}
 };
