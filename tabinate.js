@@ -31,14 +31,12 @@ $.fn.tabinate = function(options) {
 		var tabs = wrapper.find('.'+settings.tabClass);
 		wrapper.find('li').removeClass(settings.activeLinkClass);
 		tabs.hide().removeClass(settings.activeTabClass);
-		if(wrapper.find('#'+hash).length > 0) { // If hash, show tab
+		if(hash.length > 0 && wrapper.find('#'+hash).length > 0) { // If hash, show tab
 			$('#'+hash+'.'+settings.tabClass).show();
 			wrapper.find("a[href='#"+hash+"'], a[href='#!/"+hash+"']").eq(0).closest('li').addClass(settings.activeLinkClass);
 		} else { // else, show default
-			if(wrapper.find('.'+settings.tabClass+':visible').length == 0 || settings.startTab > 0){
-				var links = wrapper.find('ul:eq(0) li:eq('+settings.startTab+')').addClass(settings.activeLinkClass);
-				tabs.eq(settings.startTab).show().addClass(settings.activeTabClass);
-			}
+			wrapper.find('ul:eq(0) li:eq('+settings.startTab+')').addClass(settings.activeLinkClass);
+			tabs.eq(settings.startTab).show().addClass(settings.activeTabClass);
 		}
 
 		// Click Binding
