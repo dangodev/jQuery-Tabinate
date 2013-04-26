@@ -7,7 +7,7 @@ Description
 -----------
 This is a lightweight, bare-bones jQuery tabination plugin for when you don't need jQuery UI bloat.
 
-*NEW* supports “Twitter-style” hashes (eg, `<a href="#div-one">Div #1</a>` OR `<a href="#!/div-one">Div #1</a>` will work)
+**NEW** supports “Twitter-style” hashes (eg, `<a href="#div-one">Div #1</a>` OR `<a href="#!/div-one">Div #1</a>` will work)
 
 There are only *3 rules* to get it working:
 
@@ -70,11 +70,11 @@ This is roughly how the HTML should look:
 
 Options
 -------
-* `activeLinkClass` - (str) CSS class hook for active tab link LIs (default: `active`)
-* `activeTabClass` - (str) CSS class hook for the visible tab (default: `active-tab`),
-* `bookmarks` - (bool) Set to `1` or `true` to enable bookmarks (URL hash changes on click), or `0` or `false` to disable bookmarks (default: `true`)
-* `tabClass` - (str) class that determines a tab element (default: `tab`)
-* `startTab` - (int) index of list item / tab to display on load (0 is first, 1 is second, etc.)
+* `activeLinkClass` - *[str]* CSS class hook for active tab link LIs *(default: `active`)*
+* `activeTabClass` - *[str]* CSS class hook for the visible tab *(default: `active-tab`)*
+* `bookmarks` - *[bool]* Set to `1` or `true` to enable bookmarks (URL hash changes on click), or `0` or `false` to disable bookmarks *(default: `true`)*
+* `tabClass` - *[str]* class that determines a tab element *(default: `tab`)*
+* `startTab` - *[int]* index of list item / tab to display on load (0 is first, 1 is second, etc.)
 
 
 Download
